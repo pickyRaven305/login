@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Course Registration
+{% endblock title %}
+
+{% block body %}
+
+<form class="row row-cols-lg-auto g-3 align-items-center" method ="POST" action = "/courseReg">
+    {% csrf_token %}
+    <div class="col-12">
+      <label class="visually-hidden" for="inlineFormInputGroupUsername">Course Name</label>
+      <div class="input-group">
+        
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Course name" name='course_name'>
+      </div>
+    </div>
+  
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">ADD</button>
+    </div>
+  </form>
+{% endblock body %}
+

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Subject Registeration{% endblock title %}
+
+{% block body %}
+<form class="row row-cols-lg-auto g-3 align-items-center" method="POST" action="/subReg">
+    {% csrf_token %}
+    
+    <div class="col-12">
+        <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+        <select class="form-select" id="inlineFormSelectPref" name = "coursename">
+            <option disabled = "true" selected>Choose...</option>
+            {% for results in courseName %}
+            <option value={{results.course_name}}>{{results.course_name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-12">
+        <label class="visually-hidden" for="inlineFormSelectPref">staff</label>
+        <select class="form-select" id="inlineFormSelectPref" name = "staffID">
+            <option disabled = "true" selected>Choose......</option>
+            {% for results in staffName %}
+            <option value={{results.id}}>{{results.firstName}} {{results.lastName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <div class="col-12">
+      <label class="visually-hidden" for="inlineFormInputGroupUsername">Subject Name</label>
+      <div class="input-group">
+        
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Subject Name"name="subject">
+      </div>
+    </div>
+    
+   
+  
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+  
+{% endblock body %}
